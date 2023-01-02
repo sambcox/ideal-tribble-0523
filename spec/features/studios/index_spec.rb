@@ -38,7 +38,7 @@ RSpec.describe 'studios index' do
   it 'displays all movies for each studio' do
     visit '/studios'
 
-    within('#Universal Studios') do
+    within("##{@universal.id}") do
       expect(page).to have_content('Toy Story')
       expect(page).to have_content('Monty Python and the Holy Grail')
       expect(page).to have_content('Airplane!')
@@ -47,7 +47,7 @@ RSpec.describe 'studios index' do
       expect(page).to_not have_content('Star Wars')
     end
 
-    within('#Paramount Pictures') do
+    within("##{@paramount.id}") do
       expect(page).to have_content('Star Wars')
       expect(page).to have_content('The Italian Job')
       expect(page).to have_content('crime')
@@ -56,7 +56,7 @@ RSpec.describe 'studios index' do
       expect(page).to_not have_content('Toy Story')
     end
 
-    within('#Universal Studios') do
+    within("##{@warner_brothers.id}") do
       expect(page).to_not have_content('Toy Story')
       expect(page).to_not have_content('Monty Python and the Holy Grail')
       expect(page).to_not have_content('Airplane!')
