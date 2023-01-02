@@ -52,4 +52,16 @@ RSpec.describe 'movies show' do
     
     expect(page).to have_content('Average Actor Age: 69')
   end
+
+  it 'allows for the addition of an actor' do
+    visit "/movies/#{@toy.id}"
+
+    expect(page).to_not have_content('Leslie Nielsen')
+
+    fill_in('actor_id', with: "#{@leslie.id}")
+    click_button('Submit')
+
+    expect(current_path).to eq("/movies/#{@toy.id}")
+    expect(page).to have_content('Leslie Nielsen')
+  end
 end
