@@ -46,7 +46,7 @@ RSpec.describe 'studios show' do
 
     expect(page).to have_content('Meryl Streep')
     expect(page).to have_content('Tom Hanks')
-    expect(page).to have_content('Leslie Nielsen')
+    expect(page).to have_content('Leslie Nielsen').once
     expect(page).to have_content('John Cleese')
     expect(page).to_not have_content('Michael Caine')
   end
